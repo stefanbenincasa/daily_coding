@@ -6,17 +6,19 @@ const array = str.split("")
 // Main
 let index, step, limit, output
 
-// Handle printing 
+// Determine "limit" of the "step" which proceeds in 
+// increments relevant to desired row amount
 
 step = array.length / 2 - 1
 limit = array.length
 index = 0
 
+// Problem : every "console.log" prints to newline
 while(index < limit) {
-	// output += index % 2 === 0 ? console.log(array[index])
+	if(index % 2 === 0) output += array[index] + " "
+	else output += " " + array[index]
 	index += step
-} 
-
+}
 
 /// Functions /// 
 function isWithinArrayLength(array, index) {
