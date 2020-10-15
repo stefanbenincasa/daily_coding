@@ -2,7 +2,6 @@
 
 const str = "qwerty"
 const array = str.split("")
-
 let firstRow, secondRow, output
 
 firstRow = ""; secondRow = "";
