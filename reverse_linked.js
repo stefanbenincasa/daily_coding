@@ -1,6 +1,8 @@
 // Reverse a "singly" linked list
 
-let list = {
+let previous, current, next, list
+
+list = {
 	head: {
 		value: 10,
 		next: {
@@ -12,53 +14,13 @@ let list = {
 	}
 }
 
-let reversed, linked
-reversed = getReversed(list.head)
-setLinked(reversed)
-console.log(linked)
+previous = null
+current = list.head
+console.log(setReversed())
 
-function getReversed(head) {
-
-	let node, tail, array
-
-	array = []
-	tail = getTail(head.next ? head.next : null)
-	node = head
-
-	if(!head||!head.next) return null 
-	else {
-
-		while(node.next) {
-			array.unshift(node.value)
-			node = node.next
-		}
-
-		array.unshift(tail.value)
-
+function setReversed() {
+	while(current !== null) {
+		previous = current
+		current = current.next
 	}
-
-	return array
-
-}
-
-function setLinked(array) {
-
-	let object, objects
-
-	object = {}; objects = [];
-	for(let i = 0; i < array.length; i++) 
-		object.value = array[i].value
-		object.next = {}
-		objects.push(object)
-		object = {}
-
-	for(let i = 0; i < array.length - 1; i++) 
-		objects[i].next = objects[i+1]
-	
-}
-
-function getTail(node) {
-	if(!node) return null
-	else if(node.next) return getTail(node.next)
-	else return node
 }
